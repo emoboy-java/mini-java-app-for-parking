@@ -1,3 +1,6 @@
+# Лог-файлы парковки
+log_*.txt
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
