@@ -1,6 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,9 +21,16 @@ public class LogManager implements AutoCloseable {
 
     public LogManager(Consumer<String> onLog) throws IOException {
         this.onLog = onLog;
+
+        //создание папки logs
+        Path logsDir = Paths.get("logs");
+        Files.createDirectories(logsDir);
+
         String fileName = "log_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")) + ".txt";
-        this.writer = new PrintWriter(new FileWriter(fileName, true), true);
-        this.currentDate = LocalDate.of(2026, 11, 25);
+        Path logFile = logsDir.resolve(fileName);
+
+        this.writer = new PrintWriter(new FileWriter(logFile.toFile(), true), true);
+        this.currentDate = LocalDate.of(2027, 1, 1);
         write("Начало записей нового дня.");
     }
 

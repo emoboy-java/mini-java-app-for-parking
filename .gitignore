@@ -1,5 +1,5 @@
 # Лог-файлы парковки
-log_*.txt
+logs/
 
 .gradle
 build/
