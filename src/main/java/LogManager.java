@@ -20,7 +20,7 @@ public class LogManager implements AutoCloseable {
         this.onLog = onLog;
         String fileName = "log_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")) + ".txt";
         this.writer = new PrintWriter(new FileWriter(fileName, true), true);
-        this.currentDate = LocalDate.of(2026, 11, 16);
+        this.currentDate = LocalDate.of(2026, 11, 25);
         write("Начало записей нового дня.");
     }
 

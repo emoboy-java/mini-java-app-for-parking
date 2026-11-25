@@ -10,15 +10,15 @@ public class PaymentCalculator {
     public static long calculate(LocalDateTime entry, LocalDateTime exit) {
         long seconds = Duration.between(entry, exit).getSeconds();
 
-        // Бесплатно до 20 минут включительно
+        //бесплатно до 20 минут включительно
         if (seconds <= FREE_MINUTES * 60) return 0;
 
-        // До 12 часов: почасовая оплата
+        //до 12 часов: почасовая оплата
         if (seconds <= DAILY_THRESHOLD_SECONDS) {
             return (long) Math.ceil(seconds / 3600.0) * HOURLY_RATE;
         }
 
-        // Свыше 12 часов: посуточная оплата (полностью заменяет почасовую)
+        //после 12 часов: посуточная оплата
         return (long) Math.ceil(seconds / (double) DAY_SECONDS) * HOURLY_RATE;
     }
 }

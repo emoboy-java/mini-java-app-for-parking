@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.function.Consumer;
 
 public class TimeManager {
-    private static final LocalDateTime START_TIME = LocalDateTime.of(2027, 1, 1, 8, 0, 0);
+    private static final LocalDateTime START_TIME = LocalDateTime.of(2026, 11, 25, 8, 0, 0);
     private final Instant realStartTime;
     private LocalDateTime currentTime;
     private final Consumer<LocalDateTime> onTick;
